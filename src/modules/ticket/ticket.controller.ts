@@ -1,6 +1,8 @@
 import { Controller, Post, Body, Get, Param, Patch, Delete } from '@nestjs/common';
 import { TicketService } from './ticket.service';
 import { Ticket } from './schemas/ticket';
+import { CreateTicketDto } from "./dtos/create-ticket.tdo"
+import { UpdateTicketDto } from "./dtos/update-ticket.dto"
 
 @Controller('tickets')
 export class TicketController {
@@ -8,9 +10,8 @@ export class TicketController {
 
   @Post()
   async addTicket(
-    @Body('event') event: string,
-    @Body('price') price: number,
-    @Body('seat') seat: string,
+    @Body() { event, price, seat }: CreateTicketDto,
+    
   ): Promise<Ticket> {
     return await this.ticketService.createTicket(event, price, seat);
   }
@@ -28,9 +29,7 @@ export class TicketController {
   @Patch(':id')
   async updateTicket(
     @Param('id') ticketId: string,
-    @Body('event') event: string,
-    @Body('price') price: number,
-    @Body('seat') seat: string,
+    @Body() { event, price, seat}: UpdateTicketDto
   ): Promise<Ticket> {
     return await this.ticketService.updateTicket(ticketId, event, price, seat);
   }

@@ -9,7 +9,7 @@ export class TicketService {
   constructor(@InjectModel('Ticket') private readonly ticketModel: Model<Ticket>,
     private readonly eventService: EventService,) { }
 
-  async createTicket(event: string, price: number, seat: string): Promise<Ticket> {
+  async createTicket(event: string, price: number, seat: Number): Promise<Ticket> {
 
     await this.eventService.getEventById(event);
 
@@ -29,7 +29,7 @@ export class TicketService {
     return ticket;
   }
 
-  async updateTicket(ticketId: string, event: string, price: number, seat: string): Promise<Ticket> {
+  async updateTicket(ticketId: string, event: string, price: number, seat: number): Promise<Ticket> {
     const updatedTicket = await this.ticketModel.findByIdAndUpdate(ticketId, { event, price, seat }, { new: true }).populate('event');
     if (!updatedTicket) {
       throw new NotFoundException('Ticket not found');

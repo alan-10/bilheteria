@@ -1,5 +1,4 @@
 import { Module } from '@nestjs/common';
-import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { EventModule } from './modules/event/event.module';
 import { TicketModule } from './modules/ticket/ticket.module';
@@ -16,6 +15,6 @@ import { UsersModule } from './modules/users/users.module';
     UsersModule,
   ],
   controllers: [],
-  providers: [AppService],
+  providers: [],
 })
 export class AppModule {}

@@ -17,7 +17,8 @@ export class EventService {
   }
 
   async getEventById(eventId: string): Promise<Event> {
-    const event = await this.eventModel.findById(eventId).exec();
+    const event = await this.eventModel.findById(eventId).exec() || null;
+    console.log("alan event",event )
     if (!event) {
       throw new NotFoundException('Event not found');
     }

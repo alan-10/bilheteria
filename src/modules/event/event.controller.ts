@@ -1,17 +1,15 @@
 import { Controller, Post, Body, Get, Param, Patch, Delete } from '@nestjs/common';
 import { EventService } from './event.service';
 import { Event } from './schemas/event.schema';
+import { CreateEventDto } from "./dtos/create-event.dto";
+import { UpdateEventDto  } from "./dtos/update-event.dto"
 
 @Controller('events')
 export class EventController {
   constructor(private readonly eventService: EventService) {}
 
   @Post()
-  async addEvent(
-    @Body('title') title: string,
-    @Body('description') description: string,
-    @Body('date') date: Date,
-  ): Promise<Event> {
+  async addEvent( @Body() { date, description, title}:CreateEventDto ): Promise<Event> {
     return await this.eventService.createEvent(title, description, date);
   }
 
@@ -28,9 +26,7 @@ export class EventController {
   @Patch(':id')
   async updateEvent(
     @Param('id') eventId: string,
-    @Body('title') title: string,
-    @Body('description') description: string,
-    @Body('date') date: Date,
+    @Body() { date, description, title , }: UpdateEventDto 
   ): Promise<Event> {
     return await this.eventService.updateEvent(eventId, title, description, date);
   }
