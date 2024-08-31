@@ -3,7 +3,10 @@ import { TicketService } from './ticket.service';
 import { Ticket } from './schemas/ticket';
 import { CreateTicketDto } from "./dtos/create-ticket.tdo"
 import { UpdateTicketDto } from "./dtos/update-ticket.dto"
+import { ApiTags, ApiBearerAuth } from "@nestjs/swagger";
 
+@ApiTags('tickets')
+@ApiBearerAuth() 
 @Controller('tickets')
 export class TicketController {
   constructor(private readonly ticketService: TicketService) {}

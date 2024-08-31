@@ -1,16 +1,3 @@
-// import { Body, Controller, Post, HttpCode, HttpStatus } from '@nestjs/common';
-// import { AuthService } from './auth.service';
-
-// @Controller('auth')
-// export class AuthController {
-//   constructor(private authService: AuthService) {}
-
-//   @HttpCode(HttpStatus.OK)
-//   @Post('login')
-//   signIn(@Body() signInDto: Record<string, any>) {
-//     return this.authService.signIn(signInDto.username, signInDto.password);
-//   }
-// }
 
 
 
@@ -27,21 +14,22 @@ import {
 import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
 import { Public } from './publict.routes';
+import { SignInDto } from "./dtos/signIn-dTo";
+import { ApiTags, ApiOperation, ApiParam, ApiBody } from '@nestjs/swagger';
 
+@ApiTags("auth")
 @Controller('auth')
 export class AuthController {
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService) { }
+
 
   @Public()
   @HttpCode(HttpStatus.OK)
   @Post('login')
-  signIn(@Body() signInDto: Record<string, any>) {
+  @ApiOperation({ summary: 'Fazer login' })
+  @ApiBody({ type: SignInDto })
+  signIn(@Body() signInDto: SignInDto) {
     return this.authService.signIn(signInDto.username, signInDto.password);
   }
 
-
-  @Get('profile')
-  getProfile(@Request() req) {
-    return req.user;
-  }
 }
