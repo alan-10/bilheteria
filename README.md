@@ -22,3 +22,41 @@ Transações ACID em MongoDB: Utilização de transações ACID para garantir qu
 
 Padrão Sagas: Implementação do padrão Sagas para transações distribuídas, garantindo que, em caso de falha, as operações sejam compensadas e o sistema mantenha a consistência dos dados.
 </details>
+
+
+
+<details>
+  <summary> Etapa 2 </summary>
+
+ ###  Como startar a aplicação 
+ 
+  1. Fazer o download do projeto https://github.com/alan-10/bilheteria
+ 
+  2. Abrir o arquivo bilheteria
+    
+  3. executar o comando `docker compose up --build`
+  este comando irá levantar a api junto com o banco de dados.
+  4. Acessar no seu navegador http://localhost:3000/api, 
+  irá abrir a documentação swagger que da acesso a api
+  nesta documentação tem um CRUD completo que implementa a lóciga de criação a deleção de (EVENTOS e TICKETS)
+
+  5. Para ter acesso aos endpoints terá que efetuar o login e pegar o token e autenticar no swagger, video a baixo
+
+
+https://github.com/user-attachments/assets/d6a5826f-7bc7-4648-af99-baef5363dee2
+
+6. Pronto!, agora poderá utilizar todas as rotas
+
+ ###  O que foi utilizado
+
+ Foi utilizado  Jestjs com  Mongodb, docker para conteinerizar a aplicação, 
+ foi adicionado autenticação de login com retorno de jsonwebtoken, 
+ foi adicionado validação dos campos com o class-validator do JestJs
+ foi adicionado proteção das rotas com o auth.guard
+ foi adicionado documentação swagger com o @nestjs/swagger 
+
+ 
+
+
+
+</details>
