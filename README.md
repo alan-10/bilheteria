@@ -42,6 +42,12 @@ Padrão Sagas: Implementação do padrão Sagas para transações distribuídas,
 
   5. Para ter acesso aos endpoints terá que efetuar o login e pegar o token e autenticar no swagger, video a baixo
 
+     login
+     
+      username: admin
+
+      password: admin
+     
 
 https://github.com/user-attachments/assets/d6a5826f-7bc7-4648-af99-baef5363dee2
 
