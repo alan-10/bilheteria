@@ -43,4 +43,10 @@ export class TicketService {
       throw new NotFoundException('Ticket not found');
     }
   }
+
+
+  async ticketsByEvent(eventId: string) {
+    const result = await this.ticketModel.find({ event: eventId }) || []
+    return result;
+  }
 }

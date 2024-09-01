@@ -1,4 +1,6 @@
 
+## Instruções em etapas
+
 <details> 
 <summary>Etapa 1</summary>
 
@@ -20,6 +22,8 @@ Mensageria com RabbitMQ/Kafka: Utilização de filas de mensagens para balancear
 3. Consistência de Dados
 Transações ACID em MongoDB: Utilização de transações ACID para garantir que todas as operações de venda de ingressos sejam consistentes e livres de duplicações. Isso assegura que os ingressos vendidos sejam contabilizados corretamente.
 
+4. Utilização de Websocket para atualizaão em tempo real, ou inscrição de eventos no formato pubsub
+
 Padrão Sagas: Implementação do padrão Sagas para transações distribuídas, garantindo que, em caso de falha, as operações sejam compensadas e o sistema mantenha a consistência dos dados.
 </details>
 
@@ -37,7 +41,7 @@ Padrão Sagas: Implementação do padrão Sagas para transações distribuídas,
   3. executar o comando `docker compose up --build`
   este comando irá levantar a api junto com o banco de dados.
   4. Acessar no seu navegador http://localhost:3000/api, 
-  irá abrir a documentação swagger que da acesso a api
+  irá abrir a documentação swagger que da acesso a api,
   nesta documentação tem um CRUD completo que implementa a lóciga de criação a deleção de (EVENTOS e TICKETS)
 
   5. Para ter acesso aos endpoints terá que efetuar o login e pegar o token e autenticar no swagger, video a baixo
@@ -53,13 +57,14 @@ https://github.com/user-attachments/assets/d6a5826f-7bc7-4648-af99-baef5363dee2
 
 6. Pronto!, agora poderá utilizar todas as rotas
 
- ###  O que foi utilizado
+ ###  O que foi utilizado e realizado
 
- Foi utilizado  Jestjs com  Mongodb, docker para conteinerizar a aplicação, 
- foi adicionado autenticação de login com retorno de jsonwebtoken, 
- foi adicionado validação dos campos com o class-validator do JestJs
- foi adicionado proteção das rotas com o auth.guard
- foi adicionado documentação swagger com o @nestjs/swagger 
+ - Foi utilizado  Jestjs com  Mongodb, docker para conteinerizar a aplicação, 
+ - Foi adicionado autenticação de login com retorno de jsonwebtoken, 
+ - Foi adicionado validação dos campos com o class-validator do JestJs
+ - Foi adicionado proteção das rotas com o auth.guard
+ - Foi adicionado documentação swagger com o @nestjs/swagger 
+ - Foi implementado testes unitários nos services o modulo de eventos e de ingressos 
 
 
 </details>

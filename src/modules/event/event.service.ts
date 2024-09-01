@@ -8,8 +8,8 @@ export class EventService {
   constructor(@InjectModel('Event') private readonly eventModel: Model<Event>) {}
 
   async createEvent(title: string, description: string, date: Date): Promise<Event> {
-    const newEvent = new this.eventModel({ title, description, date });
-    return await newEvent.save();
+    const newEvent = new this.eventModel({ title, description, date }).save();
+    return await newEvent;
   }
 
   async getEvents(): Promise<Event[]> {
@@ -18,7 +18,7 @@ export class EventService {
 
   async getEventById(eventId: string): Promise<Event> {
     const event = await this.eventModel.findById(eventId).exec() || null;
-    console.log("alan event",event )
+    
     if (!event) {
       throw new NotFoundException('Event not found');
     }
@@ -26,7 +26,7 @@ export class EventService {
   }
 
   async updateEvent(eventId: string, title: string, description: string, date: Date): Promise<Event> {
-    const updatedEvent = await this.eventModel.findByIdAndUpdate(eventId, { title, description, date }, { new: true });
+    const updatedEvent = await this.eventModel.findByIdAndUpdate(eventId, { title, description, date }, { new: true }).exec();
     if (!updatedEvent) {
       throw new NotFoundException('Event not found');
     }

@@ -3,7 +3,7 @@ import { ApiProperty } from "@nestjs/swagger";
 
 
 export class UpdateTicketDto {
-  @ApiProperty()
+  @ApiProperty({ default: "ID event" })
   @IsNotEmpty()
   event: string
 

@@ -41,4 +41,9 @@ export class TicketController {
   async removeTicket(@Param('id') ticketId: string): Promise<void> {
     return await this.ticketService.deleteTicket(ticketId);
   }
+
+  @Get('findTicketByEvent/:id')
+  async findTikectByEvent(@Param('id') eventId: string){
+    return await this.ticketService.ticketsByEvent(eventId);
+  }
 }
