@@ -44,9 +44,9 @@ Padrão Sagas: Implementação do padrão Sagas para transações distribuídas,
   irá abrir a documentação swagger que da acesso a api,
   nesta documentação tem um CRUD completo que implementa a lóciga de criação a deleção de (EVENTOS e TICKETS)
 
-  5. Para ter acesso aos endpoints terá que efetuar o login e pegar o token e autenticar no swagger, video a baixo
+  5. Para ter acesso aos endpoints terá que efetuar o login e pegar o token e autenticar no swagger, video abaixo mostrando os passos
 
-     login
+     Login de autenticação
      
       username: admin
 
