@@ -218,3 +218,12 @@ export class ProductService {
  
  
 </details>
+
+
+<details>
+ <summary>Video apresentação </summary>
+
+ link do video 
+ https://www.youtube.com/watch?v=fpGTRicUlY0
+ 
+</details>
